@@ -1,8 +1,8 @@
 package net.bounceme.dur.nntp.gnu;
 
-//hmm
-
+import java.util.List;
 import java.util.logging.Logger;
+import javax.mail.Message;
 
 public class Main {
 
@@ -13,7 +13,10 @@ public class Main {
         LOG.info("in constructor");
         u.connect();
         Page page = new Page();
-        u.getMessages(page);
+        List<Message> messages = u.getMessages(page);
+        for (Message m : messages) {
+            LOG.info(m.getSubject());
+        }
     }
 
     public static void main(String... args) throws Exception {

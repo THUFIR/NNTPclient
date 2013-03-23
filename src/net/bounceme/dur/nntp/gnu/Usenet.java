@@ -44,11 +44,11 @@ public enum Usenet {
 
     public List<Message> getMessages(Page page) throws Exception {
         Newsgroup newsgroup = new Newsgroup(page);
-        LOG.fine("fetching.." + newsgroup);
+        LOG.info("fetching.." + newsgroup);
         folder = root.getFolder(newsgroup.getNewsgroup());
         folder.open(Folder.READ_ONLY);
         List<Message> messages = Arrays.asList(folder.getMessages());
-        LOG.fine("..fetched " + folder);
+        LOG.info("..fetched " + folder);
         return Collections.unmodifiableList(messages);
     }
 
